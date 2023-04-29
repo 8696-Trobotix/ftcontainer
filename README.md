@@ -1,4 +1,4 @@
-# ftcontainer
+# ftcontainer (gradle-extension)
 ![image](https://user-images.githubusercontent.com/92550885/232341709-e8e35d97-c334-4ab5-a9e5-e60363a2a2d7.png)
 🔨 Build the [FtcRobotController](https://github.com/FIRST-Tech-Challenge/FtcRobotController) in a development container on *practically* any device.
 
@@ -11,7 +11,7 @@ Additionally, the development container is configured to run on the latest relea
 > This is not a robot simulator.  
 > Nor does it provide a method of installing the robot controller APK, though you could try to download it and manually push to the phone or Control Hub.
 
-## Getting Started
+## Getting Started ***with Gradle for Java***
 > **Note**
 > This is a guide for using the development container on [GitHub Codespaces](https://github.com/features/codespaces).  
 > If you are able to run it on another platform, consider submitting a pull request!  
@@ -26,15 +26,32 @@ Additionally, the development container is configured to run on the latest relea
         - Please submit an issue with relevant details from this log.
     - You can access your created Codespaces by navigating to Codespaces menu from the GitHub dashboard.
     - Subsequent startups of a Codespace will take under half a minute.
+    - This will install the [Gradle for Java](https://github.com/microsoft/vscode-gradle) extension.
 4. Expand the `FtcRobotController` directory and navigate to `TeamCode/.../teamcode`, or delete the pre-cloned project and clone your own repository.
     - By default and for security, Codespaces are prevented from accessing the contents of private repositories aside from the one they're created in.
     - See [here](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces) for how to add permissions.
-5. Open the README file in `teamcode` or create an OpMode.
-6. Use the shortcut <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>, or the build shortcut, to run the build task.
-    - Be sure that a file in the project to be built is actively open in the Codespace editor (VSCode), as the build task uses this information to determine which project to build.
-    - The initial build and configuring process will take a couple minutes.
-    - Subsequent builds will be under half a minute.
-    - If the build fails the first time due to the Gradle Daemon "disappearing unexpectedly", try again.
+5. Navigate to the extensions pane on the left.
+6. Disable the following extensions (this is for necessary performance):
+    - Debugger for Java
+    - Language Support for Java...
+    - Maven for Java
+    - Project Manager for Java
+    - Test Runner for Java
+        - Reload Codespaces as prompted.
+7. Navigate to settings.
+    - Click on the cog in the lower left corner.
+8. Expand "Extensions" (may need to scroll down).
+9. Navigate to "Gradle".
+10. Navigate to "Gradle: Nested Projects" and open in `settings.json`.
+11. Manually change the `gradle.nestedProjects` setting to `true`.
+12. Wait for the Gradle Server to start.
+13. Navigate to the Gradle pane under the extensions pane on the left.
+    - The Gradle icon may be invisible. Hover your mouse cursor around to see if a tooltip appears.
+14. Expand `TeamCode` --> `other`.
+15. Right click on `assembleDebug`, choose "Pin Task With Args", enter "--max-workers=2" when prompted.
+16. The pinned task should now be at the top of the Gradle pane. Double click on it to run the build.
+    - Problem matching capability will be limited compared to the main branch.
+    - More information will need to be inferred from the build output.
 > **Note**
 > Codespaces is a free service, but has usage limits. You can view your usage [here](https://github.com/settings/billing).  
 > You will not be charged by default if your usage exceeds the amount allotted.

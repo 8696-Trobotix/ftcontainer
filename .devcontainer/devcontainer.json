@@ -10,5 +10,12 @@
             "installGradle": "true"
         }
     },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-gradle"
+            ]
+        }
+    },
     "postCreateCommand": "sh /usr/local/post-create-env.sh"
 }
