@@ -22,8 +22,6 @@ jobs:
       uses: devcontainers/ci@v0.3
       with:
         runCmd: |
-          # For some reason the post create script does not run automatically.
-          sh .devcontainer/post-create-env.sh && 
           ls && 
           cp 'FtcRobotController/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java' 'FtcRobotController/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/' && 
           cd FtcRobotController && sh ../build.sh

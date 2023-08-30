@@ -17,5 +17,5 @@
             ]
         }
     },
-    "postCreateCommand": "sh /usr/local/post-create-env.sh"
+    "postCreateCommand": "sudo sh /usr/local/post-create-env.sh"
 }
