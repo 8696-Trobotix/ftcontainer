@@ -17,10 +17,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: devcontainers/ci@v0.3
 
-    - name: Copy sample OpMode.
-      run: cp 'FtcRobotController/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java' 'FtcRobotController/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/'
-
-    - name: Build sample OpMode.
-      run: cd FtcRobotController && sh ../build.sh
+    - name: Set up devcontainer, copy sample OpMode, and build it.
+      uses: devcontainers/ci@v0.3
+      with:
+        runCmd: |
+          # For some reason the post create script does not run automatically.
+          sh .devcontainer/post-create-env.sh && 
+          ls && 
+          cp 'FtcRobotController/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java' 'FtcRobotController/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/' && 
+          cd FtcRobotController && sh ../build.sh
