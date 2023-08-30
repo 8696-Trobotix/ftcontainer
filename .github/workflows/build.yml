@@ -23,5 +23,5 @@ jobs:
       with:
         runCmd: |
           ls && 
-          cp 'FtcRobotController/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java' 'FtcRobotController/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/' && 
-          cd FtcRobotController && sh ../build.sh
+          sudo cp 'FtcRobotController/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Linear.java' 'FtcRobotController/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/' && 
+          cd FtcRobotController && sudo sh ../build.sh
