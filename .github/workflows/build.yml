@@ -9,6 +9,9 @@ on:
     branches:
     - main
     - workflow
+  schedule:
+    # Runs on the fifteenth day of September at 11:11 AM UTC.
+    - cron: '11 11 15 9 *'
 
 jobs:
   build:
