@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu
+FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 RUN apt update && export DEBIAN_FRONTEND=noninteractive \
     && apt install -y --no-install-recommends sdkmanager \
